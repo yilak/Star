@@ -1,22 +1,395 @@
-# Auto detect text files and perform LF normalization
-* text=auto
 
-# Custom for Visual Studio
-*.cs     diff=csharp
-*.sln    merge=union
-*.csproj merge=union
-*.vbproj merge=union
-*.fsproj merge=union
-*.dbproj merge=union
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.charset.Charset;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
-# Standard to msysgit
-*.doc	 diff=astextplain
-*.DOC	 diff=astextplain
-*.docx diff=astextplain
-*.DOCX diff=astextplain
-*.dot  diff=astextplain
-*.DOT  diff=astextplain
-*.pdf  diff=astextplain
-*.PDF	 diff=astextplain
-*.rtf	 diff=astextplain
-*.RTF	 diff=astextplain
+import javax.security.auth.Subject;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
+
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import com.google.gson.Gson;
+
+public class Hello {
+
+  private static String readAll(Reader rd) throws IOException {
+    StringBuilder sb = new StringBuilder();
+    int cp;
+    while ((cp = rd.read()) != -1) {
+      sb.append((char) cp);
+    }
+    return sb.toString();
+  }
+
+  public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
+    InputStream is = new URL(url).openStream();
+    try {
+      BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+      String jsonText = readAll(rd);
+      JSONObject json = new JSONObject(jsonText);
+      return json;
+    } finally {
+      is.close();
+    }
+  }
+
+  public static double ToDouble (String xx ) 
+  {
+	  double xxx = Double.parseDouble(xx);
+	  return xxx;
+	  
+  }
+  private static double lifeTimeCalculate(double xx,double yy)
+  {
+	  return (10000000000.00*xx)/yy;
+	  
+  }
+ public  static class MassandLifeTime
+ {
+	 double life;
+	 double mass;
+	  
+	  public MassandLifeTime()
+	  {
+		  
+	  }
+	  public  double lifeTime1() throws IOException, JSONException{
+		  JSONObject json = readJsonFromUrl("http://robert-butts.me:8081/star/42");
+		  
+		  
+		  if (json.get("spectrum").toString().equals("F2"))
+				  {
+			  double m=40;
+			  double l=500000.0;
+			  return life=90.0;
+			    //life=lifeTimeCalculate( m,l);
+				  }
+		  else if (json.get("spectrum").toString().equals("F0"))
+		  {
+			  double m =1.7;
+			  double l=6;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("O6"))
+		  {
+			  double m =40;
+			  double l=500000.0;
+			  life=lifeTimeCalculate(m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("B0"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("B5"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("A0"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("A5"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("F0"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("F5"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("G0"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("G2"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("G5"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("K0"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("K5"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("M0"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("M5"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		  else if (json.get("spectrum").toString().equals("M8"))
+		  {
+			  double m=18;
+			  double l=200000;
+			  life=lifeTimeCalculate( m,l);
+			  
+		  }
+		return life;
+		  
+		  
+		
+		  
+	  }
+  
+  }
+  public static double mass() throws IOException, JSONException
+  {
+	  JSONObject json = readJsonFromUrl("http://robert-butts.me:8081/star/42");
+	  
+	  double m=0.0;
+	  if (json.get("spectrum").toString().equals("F2"))
+			  {
+		   m=40;
+		 
+			  }
+	  else if (json.get("spectrum").toString().equals("F0"))
+	  {
+		   m =1.7;
+		 
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("O6"))
+	  {
+		   m =40;
+		 
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("B0"))
+	  {
+		   m=18;
+		
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("B5"))
+	  {
+		   m=18;
+		 		  
+	  }
+	  else if (json.get("spectrum").toString().equals("A0"))
+	  {
+		   m=18;
+		  
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("A5"))
+	  {
+		   m=18;
+		 
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("F0"))
+	  {
+		   m=18;
+		  
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("F5"))
+	  {
+		   m=18;
+		 
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("G0"))
+	  {
+		   m=18;
+		
+	  }
+	  else if (json.get("spectrum").toString().equals("G2"))
+	  {
+		   m=18;
+		
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("G5"))
+	  {
+		   m=18;
+	
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("K0"))
+	  {
+		   m=18;
+	
+	  }
+	  else if (json.get("spectrum").toString().equals("K5"))
+	  {
+		 m=18;
+		 
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("M0"))
+	  {
+		   m=18;
+		
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("M5"))
+	  {
+		   m=18;
+		
+		  
+	  }
+	  else if (json.get("spectrum").toString().equals("M8"))
+	  {
+		   m=18;
+		 
+		  
+	  }
+	 
+	  
+	  
+	  return m;
+	  
+  }
+
+  public static void SaveWorkFlow(String json1) throws IOException
+  {
+      CloseableHttpClient httpClient = HttpClients.createDefault();
+      HttpPost post = new HttpPost("http://localhost:8081/star");
+      List<NameValuePair>params=new ArrayList<>();
+      params.add(new BasicNameValuePair("task","savemodel"));
+      params.add(new BasicNameValuePair("code",json1));
+      CloseableHttpResponse response =null;
+     
+      Scanner in = null;
+      try
+      {
+          post.setEntity(new UrlEncodedFormEntity(params));
+          response = httpClient.execute(post);
+           System.out.println(response.getStatusLine());
+          HttpEntity entity = response.getEntity();
+          in = new Scanner(entity.getContent());
+          while (in.hasNext())
+          {
+              System.out.println(in.next());
+
+          }
+          EntityUtils.consume(entity);
+      } finally
+      {
+          in.close();
+          response.close();
+      }
+  }
+
+  @SuppressWarnings("deprecation")
+public static void main(String[] args) throws IOException, JSONException {
+    JSONObject json = readJsonFromUrl("http://robert-butts.me:8081/star/42");
+    System.out.println(json.toString());
+    System.out.println(json.get("id")+"\t"+ json.get("spectrum")+"\t"+json.get("name")+json.get("absolute-magnitude")); 
+    System.out.println("mass="+mass());
+    MassandLifeTime l= new MassandLifeTime();
+    System.out.println("life="+l.lifeTime1());
+    Map<String,String> map=new LinkedHashMap<String,String>();
+    map.put("id", json.get("id").toString());
+    map.put("spectrum", json.get("spectrum").toString());
+    map.put("color", json.get("color").toString());
+    map.put("name", json.get("name").toString());
+    map.put("absolute-magnitude", json.get("absolute-magnitude").toString());
+    map.put("z", json.get("z").toString());
+    map.put("y", json.get("y").toString());
+    map.put("x", json.get("x").toString());
+    map.put("mass", Double.toString(mass()));
+    map.put("life-time", Double.toString(l.lifeTime1()));
+    Gson gson = new Gson();
+    String json1=gson.toJson(map);
+   System.out.println(json1);
+   SaveWorkFlow(json1);
+  
+   
+
+    
+  }
+  
+}
